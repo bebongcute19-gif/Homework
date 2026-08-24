@@ -1,33 +1,40 @@
-version: '3.8'
-
 services:
   core-db:
     image: postgres:16
     container_name: core-db
+
     environment:
       POSTGRES_DB: banking_db
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_PASSWORD: "123"
+
     ports:
-      - "5432:5432"
+      - "5433:5432"
+
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres -d banking_db"]
-      interval: 10s
+      interval: 5s
       timeout: 5s
-      retries: 5
-      start_period: 10s
+      retries: 10
 
-  banking-app:
-    build: .
-    container_name: banking-app
+  account-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: account-service
+
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://core-db:5432/banking_db
       SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_DATASOURCE_PASSWORD: "123"
+
     ports:
       - "8080:8080"
+
     depends_on:
       core-db:
         condition: service_healthy
