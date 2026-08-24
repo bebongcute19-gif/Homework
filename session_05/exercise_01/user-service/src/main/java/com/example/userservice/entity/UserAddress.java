@@ -1,0 +1,77 @@
+package com.example.userservice.entity;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "user_addresses")
+public class UserAddress {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String address;
+    private String city;
+    private String country;
+
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public UserAddress() {
+    }
+
+    public UserAddress(String address, String city, String country) {
+        this.address = address;
+        this.city = city;
+        this.country = country;
+    }
+
+    public UserAddress(Long id, String address, String city, String country, User user) {
+        this.id = id;
+        this.address = address;
+        this.city = city;
+        this.country = country;
+        this.user = user;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+}
