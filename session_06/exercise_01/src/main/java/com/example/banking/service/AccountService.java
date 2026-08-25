@@ -30,4 +30,8 @@ public class AccountService {
     public Optional<Account> getAccountById(Long id) {
         return accountRepository.findById(id);
     }
+
+    public Optional<Account> getAccountByAccountNumber(String accountNumber) {
+        return accountRepository.findByAccountNumber(accountNumber);
+    }
 }

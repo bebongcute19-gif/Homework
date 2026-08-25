@@ -42,6 +42,25 @@ services:
     networks:
       - banking-network
 
+  transaction-service:
+    build:
+      context: ./transaction-service
+      dockerfile: Dockerfile
+
+    container_name: transaction-service
+
+    environment:
+      ACCOUNT_SERVICE_URL: http://account-service:8080
+
+    ports:
+      - "8081:8081"
+
+    depends_on:
+      - account-service
+
+    networks:
+      - banking-network
+
 volumes:
   pg-data:
 

@@ -40,13 +40,21 @@ public class AccountController {
         return ResponseEntity.ok(accounts);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<?> getAccountById(@PathVariable Long id) {
-        Optional<Account> account = accountService.getAccountById(id);
+    @GetMapping("/{accountNumber}")
+    public ResponseEntity<?> getAccountByNumber(@PathVariable String accountNumber) {
+        Optional<Account> account = accountService.getAccountByAccountNumber(accountNumber);
+        if (account.isEmpty()) {
+            try {
+                Long id = Long.parseLong(accountNumber);
+                account = accountService.getAccountById(id);
+            } catch (NumberFormatException ignored) {
+            }
+        }
+
         if (account.isPresent()) {
             return ResponseEntity.ok(account.get());
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Account not found with id: " + id);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Account not found: " + accountNumber);
         }
     }
 }
