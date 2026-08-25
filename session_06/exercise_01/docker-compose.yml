@@ -8,14 +8,14 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: "123"
 
-    ports:
-      - "5433:5432"
-
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - pg-data:/var/lib/postgresql/data
+
+    networks:
+      - banking-network
 
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d banking_db"]
+      test: [ "CMD-SHELL", "pg_isready -U postgres -d banking_db" ]
       interval: 5s
       timeout: 5s
       retries: 10
@@ -39,5 +39,12 @@ services:
       core-db:
         condition: service_healthy
 
+    networks:
+      - banking-network
+
 volumes:
-  postgres_data:
+  pg-data:
+
+networks:
+  banking-network:
+    driver: bridge
