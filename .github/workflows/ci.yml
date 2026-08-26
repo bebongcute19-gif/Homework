@@ -2,11 +2,11 @@ name: Cart Service CI
 
 on:
   push:
-    branches:
-      - main
+    paths:
+      - 'session_07/exercise_01/**'
   pull_request:
-    branches:
-      - main
+    paths:
+      - 'session_07/exercise_01/**'
 
 jobs:
   build:
@@ -17,7 +17,7 @@ jobs:
         working-directory: session_07/exercise_01
 
     steps:
-      - name: Checkout source code
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Setup Java 17
@@ -26,8 +26,8 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Grant execute permission for Gradle
+      - name: Make Gradle executable
         run: chmod +x gradlew
 
-      - name: Build application
+      - name: Build with Gradle
         run: ./gradlew bootJar
