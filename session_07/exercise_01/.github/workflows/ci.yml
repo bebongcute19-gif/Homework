@@ -2,15 +2,25 @@ name: Cart Service CI
 
 on:
   push:
+    paths:
+      - 'session_07/exercise_01/**'
+  pull_request:
+    paths:
+      - 'session_07/exercise_01/**'
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v4
+    defaults:
+      run:
+        working-directory: session_07/exercise_01
 
-      - name: Setup Java
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Java 17
         uses: actions/setup-java@v4
         with:
           java-version: '17'
