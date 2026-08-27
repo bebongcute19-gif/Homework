@@ -11,7 +11,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: session_07/exercise_04/restaurant-service
+        working-directory: session_07/exercise_04
 
     steps:
       - name: Checkout code
