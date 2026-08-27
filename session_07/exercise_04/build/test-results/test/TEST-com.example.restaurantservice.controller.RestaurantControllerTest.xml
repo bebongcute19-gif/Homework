@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.restaurantservice.controller.RestaurantControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-08-27T01:56:17" hostname="ADMIN-PC" time="0.237">
+  <properties/>
+  <testcase name="GET /api/restaurants should return 200 OK with list" classname="com.example.restaurantservice.controller.RestaurantControllerTest" time="0.237"/>
+  <system-out><![CDATA[08:56:15.080 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.restaurantservice.controller.RestaurantControllerTest]: RestaurantControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+08:56:15.228 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.restaurantservice.RestaurantServiceApplication for test class com.example.restaurantservice.controller.RestaurantControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.3)
+
+2026-08-27T08:56:15.601+07:00  INFO 30172 --- [restaurant-service] [    Test worker] c.e.r.c.RestaurantControllerTest         : Starting RestaurantControllerTest using Java 17.0.20 with PID 30172 (started by Admin in D:\Modurn 5\Homework\session_07\exercise_04)
+2026-08-27T08:56:15.603+07:00  INFO 30172 --- [restaurant-service] [    Test worker] c.e.r.c.RestaurantControllerTest         : No active profile set, falling back to 1 default profile: "default"
+2026-08-27T08:56:17.375+07:00  INFO 30172 --- [restaurant-service] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-08-27T08:56:17.375+07:00  INFO 30172 --- [restaurant-service] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-08-27T08:56:17.379+07:00  INFO 30172 --- [restaurant-service] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-08-27T08:56:17.415+07:00  INFO 30172 --- [restaurant-service] [    Test worker] c.e.r.c.RestaurantControllerTest         : Started RestaurantControllerTest in 2.113 seconds (process running for 3.219)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.restaurantservice.service.RestaurantServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-08-27T01:56:17" hostname="ADMIN-PC" time="0.023">
+  <properties/>
+  <testcase name="getAllRestaurants() should return non-empty list" classname="com.example.restaurantservice.service.RestaurantServiceTest" time="0.013"/>
+  <testcase name="getRestaurantById() should return null for unknown id" classname="com.example.restaurantservice.service.RestaurantServiceTest" time="0.002"/>
+  <testcase name="getAllRestaurants() each restaurant should have id, name, and address" classname="com.example.restaurantservice.service.RestaurantServiceTest" time="0.001"/>
+  <testcase name="getAllRestaurants() should return 5 restaurants" classname="com.example.restaurantservice.service.RestaurantServiceTest" time="0.001"/>
+  <testcase name="getRestaurantById() should return correct restaurant for valid id" classname="com.example.restaurantservice.service.RestaurantServiceTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

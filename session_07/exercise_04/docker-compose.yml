@@ -1,0 +1,21 @@
+services:
+  github-runner:
+    image: myoung34/github-runner:latest
+    container_name: quickbite-restaurant-runner
+
+    environment:
+      REPO_URL: ${REPO_URL}
+      RUNNER_TOKEN: ${RUNNER_TOKEN}
+
+      RUNNER_NAME: quickbite-restaurant-runner
+      RUNNER_SCOPE: repo
+
+      LABELS: quickbite,restaurant-service
+
+      RUNNER_WORKDIR: /tmp/github-runner/work
+
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./runner-work:/tmp/github-runner/work
+
+    restart: unless-stopped
