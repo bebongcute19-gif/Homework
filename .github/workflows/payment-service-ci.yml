@@ -13,6 +13,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Debug project structure
+        run: |
+          pwd
+          ls -la
+          ls -la session_07/exercise_03
+          ls -la session_07/exercise_03/gradle/wrapper
+
       - name: Setup Java 21
         uses: actions/setup-java@v4
         with:
@@ -23,6 +30,8 @@ jobs:
         working-directory: session_07/exercise_03
         run: |
           chmod +x ./gradlew
+          ls -la gradle/wrapper
+          ./gradlew --version
           ./gradlew test
 
   build:
@@ -49,5 +58,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: payment-service-artifact
-          path: session_07/exercise_03/build/libs/
-          retention-days: 3
+          path: session_07/exercise_03/build/libs/*.jar
